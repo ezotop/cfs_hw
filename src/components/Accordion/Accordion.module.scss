@@ -1,0 +1,15 @@
+.accordion {
+	&__trigger {
+		display: flex;
+		align-items: center;
+		gap: 8;
+	}
+
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 24px;
+		height: 24px;
+	}
+}

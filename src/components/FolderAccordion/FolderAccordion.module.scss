@@ -1,0 +1,9 @@
+.folderAccordion {
+	padding-left: 20px;
+
+	&__trigger {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+}
