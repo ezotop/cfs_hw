@@ -1,5 +1,6 @@
 import { useEffect, useState, type FC, type ReactNode } from 'react';
-import { FolderAccordion } from '../../components/FolderAccordion/FolderAccordion';
+import type { GetFolderResponseModel, TTreeItem } from '../../entities';
+import { FolderAccordion } from '../../entities/folder/ui/FolderAccordion/FolderAccordion';
 import styles from './FolderStructure.module.scss';
 
 const icons: Record<string, ReactNode> = {
@@ -16,17 +17,6 @@ const icons: Record<string, ReactNode> = {
 		</svg>
 	),
 };
-
-interface IFile {
-	type: 'file';
-}
-
-interface IFolder {
-	type: 'folder';
-	children: Record<string, IFolder | IFile>;
-}
-
-type TTreeItem = IFolder | IFile;
 
 const FolderStructureItem = ({
 	name,
@@ -60,7 +50,7 @@ const FolderStructureItem = ({
 	);
 };
 
-type TFoldersState = Record<string, Record<string, TTreeItem>>;
+type TFoldersState = GetFolderResponseModel;
 
 export const FolderStructure: FC = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);

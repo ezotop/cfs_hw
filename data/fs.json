@@ -10,6 +10,17 @@
 							"Avengers Spinoffs": {
 								"type": "folder",
 								"children": {
+									"Avengers Multiverse": {
+										"type": "folder",
+										"children": {
+											"Infinity War Multiverse": {
+												"type": "file"
+											},
+											"Endgame Multiverse": {
+												"type": "file"
+											}
+										}
+									},
 									"Infinity War Spinoff": { "type": "file" },
 									"Endgame Spinoff": { "type": "file" }
 								}
@@ -30,6 +41,29 @@
 				}
 			},
 			"comics": {
+				"type": "folder",
+				"children": {
+					"X-Men": {
+						"type": "folder",
+						"children": {
+							"Dark Phoenix Saga": { "type": "file" },
+							"Days of Future Past": { "type": "file" }
+						}
+					},
+					"Fantastic Four": {
+						"type": "folder",
+						"children": {
+							"Galactus Trilogy": { "type": "file" },
+							"The Coming of Galactus": { "type": "file" }
+						}
+					},
+					"Captain America": { "type": "file" },
+					"Black Panther": { "type": "file" }
+				}
+			}
+		},
+		"root 2": {
+			"books": {
 				"type": "folder",
 				"children": {
 					"X-Men": {

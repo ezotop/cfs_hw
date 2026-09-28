@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import { Accordion } from '../Accordion/Accordion';
+import { Accordion } from '../../../../shared/ui/Accordion/Accordion';
 import styles from './FolderAccordion.module.scss';
 
 const icons: Record<string, ReactNode> = {
