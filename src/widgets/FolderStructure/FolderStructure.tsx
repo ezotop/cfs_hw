@@ -1,5 +1,9 @@
 import { useEffect, useState, type FC, type ReactNode } from 'react';
-import type { GetFolderResponseModel, TTreeItem } from '../../entities';
+import {
+	FolderService,
+	type GetFolderResponseModel,
+	type TTreeItem,
+} from '../../entities';
 import { FolderAccordion } from '../../entities/folder/ui/FolderAccordion/FolderAccordion';
 import styles from './FolderStructure.module.scss';
 
@@ -39,7 +43,7 @@ const FolderStructureItem = ({
 				content={Object.entries(item.children).map(
 					([childName, childItem]) => (
 						<FolderStructureItem
-							key={name + childName}
+							key={childName}
 							name={childName}
 							item={childItem}
 						/>
@@ -59,15 +63,17 @@ export const FolderStructure: FC = () => {
 	});
 
 	useEffect(() => {
-		fetch('http://localhost:3000/folders')
-			.then(res => res.json())
-			.then((data: TFoldersState) => {
-				setFolderTree(data);
-			})
-			.catch(err => {
-				console.error('fetch failed:>>', err);
-			})
-			.finally(() => setIsLoading(false));
+		const init = async (): Promise<void> => {
+			try {
+				setFolderTree(await FolderService.getFolders());
+			} catch (error) {
+				console.error('fetch failed:>>', error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		init();
 	}, []);
 
 	return (
@@ -86,7 +92,7 @@ export const FolderStructure: FC = () => {
 								([name, item]) => (
 									// nested folders/files
 									<FolderStructureItem
-										key={rootName + name}
+										key={name}
 										name={name}
 										item={item}
 									/>
